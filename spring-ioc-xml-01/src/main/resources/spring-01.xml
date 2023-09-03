@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="happyComponent1" class="com.atguigu.ioc_01.HappyComponent"/>
+
+    <bean id="happyComponent2" class="com.atguigu.ioc_01.HappyComponent"/>
+
+    <!-- 静态工厂类如何声明工厂方法进行ioc配置 -->
+    <bean id="clientService" class="com.atguigu.ioc_01.ClientService" factory-method="createInstance" />
+
+    <!-- 非静态工厂类声明 -->
+    <!-- 1. 非静态工厂类声明 -->
+    <bean id="defaultServiceFactory" class="com.atguigu.ioc_01.DefaultServiceFactory" />
+    <!-- 2. 非静态工厂类声明 -->
+    <bean id="clientServiceImp" factory-bean="defaultServiceFactory" factory-method="createInstance" />
+</beans>
